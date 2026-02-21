@@ -83,7 +83,9 @@ export const bestPractices = {
               <span class="count">${count}</span>
             </div>
           `;
-          this.shadowRoot.querySelector('button').addEventListener('click', this._boundClick);
+          this.shadowRoot
+            .querySelector('button')
+            .addEventListener('click', this._boundClick);
         }
       }
       customElements.define('wc-best-practice-demo', BestPracticeDemo);

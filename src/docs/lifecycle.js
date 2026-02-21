@@ -50,12 +50,17 @@ export const lifecycle = {
         }
         render() {
           const s = this.getAttribute('status') || 'info';
-          const colors = { ok: '#6b9b6b', warning: '#d4a84b', error: '#c75c5c', info: '#7a6f64' };
+          const colors = {
+            ok: '#6b9b6b',
+            warning: '#d4a84b',
+            error: '#c75c5c',
+            info: '#7a6f64',
+          };
           this.shadowRoot.innerHTML = `
             <style>
               .badge { padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: #f5efe6; }
             </style>
-            <span class="badge" style="background:${(colors[s] || colors.info)}66">${s}</span>
+            <span class="badge" style="background:${colors[s] || colors.info}66">${s}</span>
           `;
         }
       }
@@ -101,7 +106,8 @@ export const lifecycle = {
     if (statusDemo) {
       const firstBadge = statusDemo.querySelector('wc-status');
       statusDemo.querySelectorAll('[data-status]').forEach((btn) => {
-        btn.onclick = () => firstBadge?.setAttribute('status', btn.dataset.status || '');
+        btn.onclick = () =>
+          firstBadge?.setAttribute('status', btn.dataset.status || '');
       });
     }
   },

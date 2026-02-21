@@ -55,7 +55,8 @@ export const customElements = {
           this.innerHTML = `<strong>Hello, ${name}!</strong>`;
         }
         attributeChangedCallback(name, oldVal, newVal) {
-          if (name === 'name') this.innerHTML = `<strong>Hello, ${newVal || 'World'}!</strong>`;
+          if (name === 'name')
+            this.innerHTML = `<strong>Hello, ${newVal || 'World'}!</strong>`;
         }
       }
       window.customElements.define('wc-greeting', Greeting);

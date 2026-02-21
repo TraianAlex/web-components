@@ -66,7 +66,7 @@ export const shadowDom = {
             success: { bg: '#6b9b6b', text: 'white' },
             warning: { bg: '#d4a84b', text: '#1a1612' },
             error: { bg: '#c75c5c', text: 'white' },
-            info: { bg: '#7a6f64', text: 'white' }
+            info: { bg: '#7a6f64', text: 'white' },
           };
           const s = styles[type] || styles.info;
           this.shadowRoot.innerHTML = `
@@ -96,7 +96,8 @@ export const shadowDom = {
         render() {
           const value = parseInt(this.getAttribute('value') || '0', 10);
           const max = parseInt(this.getAttribute('max') || '100', 10);
-          const pct = max > 0 ? Math.min(100, Math.max(0, (value / max) * 100)) : 0;
+          const pct =
+            max > 0 ? Math.min(100, Math.max(0, (value / max) * 100)) : 0;
           this.shadowRoot.innerHTML = `
             <style>
               :host { display: block; width: 100%; min-width: 120px; }

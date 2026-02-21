@@ -72,16 +72,17 @@ export class App {
   updateNavState() {
     this.container.querySelectorAll('.nav-link').forEach((link) => {
       const href = link.getAttribute('href')?.slice(1) || '';
-      link.classList.toggle('active', href === this.currentDocId || (href === 'playground' && this.currentView === 'playground'));
+      link.classList.toggle(
+        'active',
+        href === this.currentDocId ||
+          (href === 'playground' && this.currentView === 'playground'),
+      );
     });
   }
 
   render() {
     const navItems = docs
-      .map(
-        (d) =>
-          `<a class="nav-link" href="#${d.id}">${d.title}</a>`
-      )
+      .map((d) => `<a class="nav-link" href="#${d.id}">${d.title}</a>`)
       .join('');
 
     this.container.innerHTML = `
